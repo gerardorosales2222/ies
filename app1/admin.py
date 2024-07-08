@@ -8,10 +8,6 @@ class profesor(admin.ModelAdmin):
     def get_titulos(self, obj):
         return ', '.join([titulo.nombre for titulo in obj.titulos.all()])
 
-@admin.register(Tipo_de_Carrera)
-class tipo_carrera(admin.ModelAdmin):
-    list_display = ('tipo', 'duracion')
-
 @admin.register(Carrera)
 class carrera(admin.ModelAdmin):
     list_display = ('nombre', 'resolucion')
@@ -23,7 +19,6 @@ class alumno(admin.ModelAdmin):
     def get_carreras(self, obj):
         return ', '.join([Carrera.nombre for Carrera in obj.carreras.all()])
 
-admin.site.register(Titulo)
 admin.site.register(Materia)
 
 
